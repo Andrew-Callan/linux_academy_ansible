@@ -1,0 +1,33 @@
+--- # Outline to Playbook
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  gather_facts: no
+  tasks:
+  - name: date-time stamp for when playbook started
+    command: /usr/bin/date
+    register: timestamp_start
+  - debug: var=timestamp_start
+  - name: install apache web server
+    yum: pkg=httpd state=latest
+    notify: Start HTTPD
+  - name: install client software telnet
+    yum: pkg=telnet state=latest
+  - name: install client software lynx
+    yum: pkg=lynx state=latest
+  - name: log all packages installed on system
+    command: yum list installed
+    register: installed_result
+  - debug: var=installed_result
+  - name: date-time stamp for when playbook ends
+    command: /usr/bin/date
+    register: timestamp_end
+  - debug: var=timestamp_end
+  handlers:
+  - name: Start HTTPD
+    service: name=httpd state=restarted
+    notify: Check HTTPD
+  - name: Check HTTPD
+    command: systemctl status httpd
+    register: result
+  - debug: var=result

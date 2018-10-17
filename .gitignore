@@ -1,0 +1,6 @@
+*.pem
+*.json
+*id_rsa*
+*retry*
+*.tgz
+structure/

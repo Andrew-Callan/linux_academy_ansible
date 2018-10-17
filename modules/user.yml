@@ -1,0 +1,11 @@
+--- # Demo of the user module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: 
+  tasks:
+  - name: Add user tstapache to wheel group
+    user: name=tstapache2 comment="Test Apache2" group=wheel shell=/bin/bash
+  - name: remove user
+    user: name=tstapache2 state=absent remove=yes

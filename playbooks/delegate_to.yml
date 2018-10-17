@@ -1,0 +1,12 @@
+--- # Delegation example
+- hosts: rpm
+  sudo: yes
+  user: ansible
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Run a remote ping on the other server
+    shell: ping -c 4 10.142.0.5 >> /home/ansible/playbooks/ping.txt
+    delegate_to: 127.0.0.1
+  - name: Install a package
+    yum: pkg=lynx state=latest

@@ -1,0 +1,13 @@
+--- # Demo of the template module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: yes
+  vars:
+    userName: Test
+    userPassword: password
+    connectionType: SFTP
+  tasks:
+  - name: Install config file
+    template: src=jinja2.conf.j2 dest=/home/ansible/config.txt owner=ansible group=ansible mode=0744

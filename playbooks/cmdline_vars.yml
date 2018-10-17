@@ -1,0 +1,11 @@
+--- # Variables at cmd line example
+- hosts: '{{ host }}'
+  user: '{{ user }}'
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: echo a thing
+    command: echo {{ echo }}
+
+# To Execute run ansible-playbook cmdline_vars.yml --extra-vars "host=rpm user=ansible echo=HELLLOOOOOOO"

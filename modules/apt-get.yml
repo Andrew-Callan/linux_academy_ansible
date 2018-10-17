@@ -1,0 +1,15 @@
+--- # Apt-get module
+- hosts: deb
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Install apache web server
+    apt: name=apache2 state=present
+  - name: Remove apache
+    apt: name=apache2 state=removed
+  - name: Update with apt-get
+    apt: update_cache=yes
+  - name: Upgrade with apt-get
+    apt: upgrade=dist

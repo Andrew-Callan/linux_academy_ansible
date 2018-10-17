@@ -1,0 +1,9 @@
+--- # Demo of the X module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Change bool for anon writes on webserver
+    seboolean: name=httpd_anon_write state=yes

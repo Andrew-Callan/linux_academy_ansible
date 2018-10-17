@@ -1,0 +1,9 @@
+--- # Demo of the mount module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Mount a hd partition
+    mount: src=<partition name> name=<mount point> fstpe=ext3opts=rw state=present

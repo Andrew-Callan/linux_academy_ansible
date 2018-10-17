@@ -1,0 +1,10 @@
+--- # Includes playbook
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - include: plays/packages.yml
+  - name: verify telnet
+    raw: yum list installed | grep telnet > /home/ansible/package_installed.log

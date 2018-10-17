@@ -1,0 +1,9 @@
+--- # Demo of the copy module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+   - name: copy a file
+     action: copy src=test_file.txt dest=/home/ansible/test_file.txt owner=ansible group=ansible mode=0644

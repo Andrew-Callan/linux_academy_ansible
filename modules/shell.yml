@@ -1,0 +1,10 @@
+--- # Demo of the shell module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Execute remote command - uptime
+    shell: /usr/bin/uptime >> uptime.log
+

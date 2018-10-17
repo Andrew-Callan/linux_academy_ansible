@@ -1,0 +1,9 @@
+--- # Demo of the ping module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Ping a machine
+    ping:

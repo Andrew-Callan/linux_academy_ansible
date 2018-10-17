@@ -1,0 +1,9 @@
+--- # Demo of the apache2 module
+- hosts: deb
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Demo apache2 module
+    apache2_module: state=absent name=alias

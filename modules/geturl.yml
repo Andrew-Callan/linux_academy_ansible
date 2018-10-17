@@ -1,0 +1,9 @@
+--- # Demo of the get_url module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Download a file over http
+    get_url: url=<url> dest=/home/ansible/filename.txt

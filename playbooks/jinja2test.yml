@@ -1,0 +1,13 @@
+--- # Testing jinja2
+- hosts: rpm:deb
+  connection: ssh
+  user: ansible
+  sudo: yes
+  gather_facts: yes
+  vars:
+    userName: ansible
+    userPassword: ansible
+    connectionType: SFTP
+  tasks: 
+  - name: Install config file
+    template: src=test.conf.j2 dest=/home/ansible/test.conf owner=ansible group=ansible mode=750

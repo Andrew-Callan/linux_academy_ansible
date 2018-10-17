@@ -1,0 +1,13 @@
+--- # Demo of the dnf module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Demo DNF Module to install DNF
+    dnf: name=httpd state=latest
+  - name: DNF update
+    dnf: name=* state=latest
+  - name: Install group
+    dnf: name="@Development tools" state=latest

@@ -1,0 +1,13 @@
+File:
+ansible <hosts> -m file -a "path=/etc" 
+	This gives info on file/dir
+
+ansible <hosts> -s -m file -a 'path=/tmp/etc state=directory mode=0700 owner=root'
+	This will create the directory on the given hosts
+
+ansible <hosts> -s -m copy -a 'src=test_file.txt dest=/tmp/test_file.txt'
+	Copies the test file
+
+
+Pause:
+

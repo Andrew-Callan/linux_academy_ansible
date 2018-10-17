@@ -1,0 +1,9 @@
+--- # Demo of the X module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts:
+  tasks:
+  - name: Execute a raw command
+    raw: /usr/bin/uptime

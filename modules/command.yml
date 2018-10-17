@@ -1,0 +1,13 @@
+--- # Demo of the command module
+- hosts: deb
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Run a command - In this case execute a script
+    command: /home/ansible/test.sh
+  - name: Run a command
+    command: 
+    args:
+      chdir: /home/ansible/

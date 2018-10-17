@@ -1,0 +1,7 @@
+- hosts: rpm
+  vars:
+    control_server: localhost
+    web_root: /var/www/html/
+  tasks:
+    - name: Install Lynx on rpm servers
+      yum: pkg=lynx state=installed update_cache=true

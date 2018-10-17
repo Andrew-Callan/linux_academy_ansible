@@ -1,0 +1,14 @@
+--- # The waitfor module
+- hosts: rpm
+  sudo: yes
+  user: ansible
+  gather_facts: no
+  tasks:
+  - name: Installing tomcat
+    action: yum name=tomcat state=installed
+  - name: Waiting for 8080 to listen
+    wait_for:
+      port: 8080
+      state: started
+  - name: Verify lynx
+    action: yum name=lynx state=present

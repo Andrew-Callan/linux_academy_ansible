@@ -1,0 +1,13 @@
+--- # Using the service module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: install httpd
+    yum: name=httpd state=latest
+  - name: restart httpd
+    service: name=httpd state=restarted
+  - name: ensure startup on
+    service: name=httpd enabled=yes

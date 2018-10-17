@@ -1,0 +1,15 @@
+--- # The pause module
+- hosts: rpm
+  sudo: yes
+  connection: ssh
+  user: ansible
+  gather_facts: no
+  tasks:
+  - name: Install HTTPD
+    action: yum name=httpd state=installed
+  - name: Pausing
+    pause: 
+      prompt: "Making sure install is complete..."
+#     seconds: 5 This would make it wait for 5 seconds rather than til enter key is hit
+  - name: Verify Lynx
+    action: yum name=lynx state=present

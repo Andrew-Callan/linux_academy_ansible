@@ -1,0 +1,9 @@
+--- # Demo of the group module
+- hosts: rpm
+  user: ansible
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Add new splunk group
+    group: name=splunk state=present

@@ -1,0 +1,11 @@
+--- # Demo of the cron module
+- hosts: rpm
+  user: ansible
+#  sudo: yes - NO sudo to add cron job to ansible user.
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - name: Cron module demonstration
+    cron: name="List Files" minute="0" hour="1" job="ls -la /tmp >> /home/ansible/cron.log"
+  - name: remove previous cron
+    cron: name="List Files" state=absent

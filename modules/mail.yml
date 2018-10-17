@@ -1,0 +1,13 @@
+--- # Demo of the mail module
+- hosts: deb
+  user: ansible
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Demo the mail module
+    mail:
+      host='localhost'
+      port=25
+      to='test'
+      subject='Our host is finished deploying'
+      body='System called {{ ansible_hostname }} has been successfully deployed'
